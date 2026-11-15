@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunar South Pole Landing Site Simulator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. 新手教程遮罩层 -->
+    <div id="tutorial-overlay">
+        <div class="tutorial-card">
+            <h2>🌕 Welcome to the Lunar Landing Simulator</h2>
+            <div class="tutorial-content">
+                <p>Over 50 years ago, humans first stepped on the Moon. Now, humanity is returning to the South Pole. The South Pole contains permanently shadowed craters holding water ice, which can be converted into drinking water, oxygen, and rocket fuel.</p>
+                <p><strong>Your Mission:</strong> Evaluate landing sites based on solar power and communication.</p>
+                
+                <div style="margin-top: 15px; padding: 10px; background: rgba(58, 159, 237, 0.1); border-radius: 8px;">
+                    <p style="margin-bottom: 8px;"><strong>Understanding the Telemetry:</strong></p>
+                    <ul style="margin: 0; padding-left: 20px; font-size: 14px;">
+                        <li><strong>☀️ Illumination:</strong> A Lunar Day lasts 29.5 Earth days. Low sun angles cause long shadows.</li>
+                        <li><strong>⛰️ Slope:</strong> Steep slopes (over 10°) risk tipping the lander over.</li>
+                        <li><strong>📡 Comm:</strong> Earthset means direct line-of-sight is lost.</li>
+                    </ul>
+                </div>
+            </div>
+            <button id="start-sim-btn">Start Simulation</button>
+        </div>
+    </div>
+
+    <!-- 2. 主界面 -->
+    <div class="container">
+        <h2>🌕 Lunar South Pole Landing Simulator</h2>
+        
+        <div class="simulation-box">
+            <canvas id="simCanvas" width="540" height="220"></canvas>
+        </div>
+
+        <div class="form-grid">
+            <div class="full-width">
+                <label>Target Landing Site</label>
+                <select id="landing-select">
+                    <option value="">-- Select a Landing Site --</option>
+                    <option value="site1">Peak near Cabeus B (Artemis III)</option>
+                    <option value="site2">Haworth (Artemis III)</option>
+                    <option value="site3">Malapert Massif (Artemis III)</option>
+                    <option value="site4">Mons Mouton (Artemis III)</option>
+                    <option value="site8">Mons Mouton Plateau (Artemis III)</option>
+                    <option value="site9">Nobile Rim 1 (Artemis III)</option>
+                    <option value="site10">Nobile Rim 2 (Artemis III)</option>
+                    <option value="site11">de Gerlache Rim 2 (Artemis III)</option>
+                    <option value="site12">Slater Plain (Artemis III)</option>
+                    <option value="site5">Shiv Shakti Point (Chandrayaan-3)</option>
+                    <option value="site6">Taurus-Littrow (Apollo 17)</option>
+                    <option value="site7">Mare Tranquillitatis (Apollo 11)</option>
+                    <option value="site13">Malapert A (Commercial)</option>
+                    <option value="site14">Nobile Crater / VIPER (Commercial)</option>
+                </select>
+            </div>
+            <div>
+                <label>Simulation Date</label>
+                <input type="date" id="date-input">
+            </div>
+            <div>
+                <label>Simulation Time</label>
+                <input type="time" id="time-input">
+            </div>
+            <div class="full-width">
+                <label>Crew Size (2-4)</label>
+                <input type="number" id="people-input" min="2" max="4" value="2">
+            </div>
+        </div>
+
+        <div id="data-panel">🔭 Please select a landing site...</div>
+        <button id="save-btn">Save & Analyze Mission</button>
+        
+        <div id="ai-result-panel" style="display: none; margin-top: 15px; padding: 15px; background: rgba(15, 13, 30, 0.95); border: 1px solid #00ffcc; border-radius: 10px; color: #fff;"></div>
+    </div>
+
+    <!-- 3. 悬浮 AI 助手 -->
+    <div id="ai-assistant">
+        <div id="ai-chat-box" style="display: none;">
+            <div class="ai-header">
+                <span>🤖 NASA Copilot</span>
+                <button id="close-ai">✖</button>
+            </div>
+            <div id="ai-messages">
+                <div class="bot-msg">Hello Commander! Ask me about the mission risk or site details.</div>
+            </div>
+            <div class="ai-input-area">
+                <input type="text" id="ai-input" placeholder="Ask about this site...">
+                <button id="ai-send-btn">➤</button>
+            </div>
+        </div>
+        <button id="ai-toggle-btn">🤖</button>
+    </div>
+
+    <audio id="bgm" src="NASA Space Apps Challenge Website OST.mp3" loop preload="auto"></audio>
+    <button id="bgm-btn">🎵 BGM: OFF</button>
+
+    <script src="script.js"></script>
+    <script src="ai.js"></script>
+</body>
+</html>

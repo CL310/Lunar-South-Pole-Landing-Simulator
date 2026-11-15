@@ -32,6 +32,12 @@
 
     <!-- 2. 主界面 -->
     <div class="container">
+        <!-- 顶部导航栏：左返回，右信息 -->
+        <div class="nav-header">
+            <button id="btn-help" class="nav-btn">← Tutorial</button>
+            <button id="btn-dashboard" class="nav-btn">ⓘ Information</button>
+        </div>
+
         <h2>🌕 Lunar South Pole Landing Simulator</h2>
         
         <div class="simulation-box">
@@ -95,6 +101,37 @@
             </div>
         </div>
         <button id="ai-toggle-btn">🤖</button>
+    </div>
+
+    <!-- 4. Mission Dashboard 弹窗 -->
+    <div id="dashboard-modal" style="display: none;">
+        <div class="dashboard-content">
+            <div class="dashboard-header">
+                <h2>🛰️ Mission Dashboard</h2>
+                <button id="close-dashboard">✖</button>
+            </div>
+            <p style="margin-bottom: 20px; font-size: 14px;">Explore official NASA mission pages and data sources related to lunar exploration.</p>
+            <div class="links-grid">
+                <a href="https://www.nasa.gov/mission/artemis-iii/" target="_blank" class="mission-link">
+                    <strong>Artemis III</strong><br>NASA's first crewed Moon landing mission.
+                </a>
+                <a href="https://www.nasa.gov/commercial-lunar-payload-services/" target="_blank" class="mission-link">
+                    <strong>CLPS Program</strong><br>Commercial Lunar Payload Services.
+                </a>
+                <a href="https://www.nasa.gov/viper/" target="_blank" class="mission-link">
+                    <strong>VIPER Rover</strong><br>Volatiles Investigating Polar Exploration Rover.
+                </a>
+                <a href="https://www.nasa.gov/mission/apollo-11/" target="_blank" class="mission-link">
+                    <strong>Apollo 11</strong><br>The historic first human Moon landing.
+                </a>
+                <a href="https://trek.nasa.gov/moon/" target="_blank" class="mission-link">
+                    <strong>Moon Trek</strong><br>NASA's 3D visualization tool for the Moon.
+                </a>
+                <a href="https://ssd.jpl.nasa.gov/horizons/" target="_blank" class="mission-link">
+                    <strong>JPL Horizons</strong><br>Solar system ephemeris data system.
+                </a>
+            </div>
+        </div>
     </div>
 
     <audio id="bgm" src="NASA Space Apps Challenge Website OST.mp3" loop preload="auto"></audio>

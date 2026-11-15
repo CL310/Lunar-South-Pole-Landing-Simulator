@@ -1,7 +1,38 @@
 * { box-sizing: border-box; }
 body { margin: 0; padding: 30px 20px 100px 20px; background-color: #030014; background-image: url('SSC website background.jpg'); background-size: cover; background-position: center; background-attachment: fixed; color: #e2e8f0; font-family: 'Outfit', sans-serif; min-height: 100vh; }
 .container { max-width: 600px; margin: 0 auto; background: rgba(15, 13, 30, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(58, 159, 237, 0.3); border-radius: 24px; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 50px rgba(58, 159, 237, 0.2); padding: 30px; }
+
+/* 顶部导航栏 */
+.nav-header { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 15px; 
+    width: 100%;
+}
+
+.nav-btn { 
+    width: auto !important; /* 强制去掉全局的 100% 宽度 */
+    margin: 0 !important;   /* 去掉全局的顶部边距 */
+    padding: 8px 15px; 
+    font-size: 13px; 
+    border-radius: 8px; 
+    box-shadow: 0 0 10px rgba(58, 159, 237, 0.2); 
+    background: rgba(58, 159, 237, 0.1); 
+    border: 1px solid rgba(58, 159, 237, 0.3); 
+    color: #3a9fed; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover { 
+    background: rgba(58, 159, 237, 0.3); 
+    transform: translateY(-1px); 
+    color: #fff; 
+}
+
 h2 { font-weight: 600; font-size: 22px; background: linear-gradient(135deg, #2d27db 0%, #3a9fed 50%, #02c7ba 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center; margin-top: 0; margin-bottom: 20px; letter-spacing: 1px; }
+
+/* 主内容 */
 .simulation-box { width: 100%; height: 220px; background: #080612; border: 2px solid rgba(58, 159, 237, 0.4); border-radius: 14px; margin-bottom: 20px; position: relative; overflow: hidden; box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8); }
 canvas { display: block; width: 100%; height: 100%; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
@@ -11,18 +42,36 @@ select, input { width: 100%; padding: 12px 14px; background: rgba(10, 8, 20, 0.8
 #data-panel { margin-top: 15px; padding: 14px 16px; background: rgba(10, 8, 20, 0.9); border-left: 4px solid #3a9fed; border-radius: 0 10px 10px 0; color: #e0f2fe; font-size: 13px; line-height: 1.5; }
 button { width: 100%; margin-top: 25px; padding: 15px; background: linear-gradient(135deg, #2d27db 0%, #3a9fed 50%, #02c7ba 100%); color: #ffffff; border: none; border-radius: 12px; font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; box-shadow: 0 8px 20px rgba(58, 159, 237, 0.4); transition: all 0.3s ease; }
 button:hover { transform: translateY(-2px); }
+
+/* 新手教程 */
 #tutorial-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(3, 0, 20, 0.9); z-index: 9999; display: flex; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
 .tutorial-card { background: rgba(15, 13, 30, 0.95); border: 1px solid rgba(58, 159, 237, 0.5); border-radius: 20px; padding: 40px; max-width: 500px; text-align: left; box-shadow: 0 0 30px rgba(58, 159, 237, 0.3); }
-.tutorial-card h2 { margin-top: 0; }
+.tutorial-card h2 { margin-top: 0; text-align: left; }
 .tutorial-content { margin: 20px 0; line-height: 1.8; color: #e2e8f0; font-size: 15px; }
 #start-sim-btn { margin-top: 0; }
+
+/* Dashboard 弹窗 */
+#dashboard-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(3, 0, 20, 0.9); z-index: 9999; display: flex; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
+.dashboard-content { background: rgba(15, 13, 30, 0.95); border: 1px solid rgba(58, 159, 237, 0.5); border-radius: 20px; padding: 30px; max-width: 650px; width: 90%; text-align: left; box-shadow: 0 0 30px rgba(58, 159, 237, 0.3); }
+.dashboard-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid rgba(58, 159, 237, 0.3); padding-bottom: 15px; }
+.dashboard-header h2 { margin: 0; }
+#close-dashboard { width: auto !important; margin: 0 !important; background: none; color: white; box-shadow: none; font-size: 20px; padding: 0 10px; }
+#close-dashboard:hover { color: #ff4444; background: none; transform: none; }
+.links-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.mission-link { display: block; background: rgba(58, 159, 237, 0.1); border: 1px solid rgba(58, 159, 237, 0.3); padding: 15px; border-radius: 10px; color: #e0f2fe; text-decoration: none; transition: 0.3s; font-size: 13px; line-height: 1.4; }
+.mission-link:hover { background: rgba(58, 159, 237, 0.2); border-color: #3a9fed; box-shadow: 0 0 15px rgba(58, 159, 237, 0.3); transform: translateY(-2px); }
+.mission-link strong { color: #3a9fed; font-size: 15px; display: block; margin-bottom: 5px; }
+
+/* AI 悬浮窗 */
 #ai-assistant { position: fixed; bottom: 30px; right: 30px; z-index: 1000; font-family: 'Outfit', sans-serif; }
 #ai-chat-box { width: 320px; background: rgba(15, 13, 30, 0.95); border: 1px solid rgba(58, 159, 237, 0.5); border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); margin-bottom: 15px; overflow: hidden; backdrop-filter: blur(10px); }
 .ai-header { background: rgba(58, 159, 237, 0.2); padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(58, 159, 237, 0.3); color: #3a9fed; font-weight: 600; font-size: 14px; }
-#close-ai { background: none; border: none; color: #fff; cursor: pointer; font-size: 16px; width: auto; margin: 0; padding: 0; box-shadow: none; }
+#close-ai { background: none; border: none; color: #fff; cursor: pointer; font-size: 16px; width: auto !important; margin: 0 !important; padding: 0 !important; box-shadow: none; }
 #ai-messages { padding: 15px; height: 200px; overflow-y: auto; font-size: 13px; color: #e2e8f0; line-height: 1.5; display: flex; flex-direction: column; gap: 10px; }
 .ai-input-area { padding: 10px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; gap: 8px; }
 #ai-input { flex: 1; padding: 8px 10px; background: rgba(0,0,0,0.5); border: 1px solid rgba(58, 159, 237, 0.4); border-radius: 20px; color: white; outline: none; font-size: 12px; }
-#ai-send-btn { background: #3a9fed; border: none; border-radius: 50%; width: 32px; height: 32px; color: white; cursor: pointer; display: flex; justify-content: center; align-items: center; margin: 0; padding: 0; }
-#ai-toggle-btn { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #2d27db 0%, #3a9fed 100%); border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 4px 15px rgba(58, 159, 237, 0.5); cursor: pointer; font-size: 24px; display: flex; justify-content: center; align-items: center; float: right; margin: 0; }
-#bgm-btn { position: fixed; bottom: 20px; left: 20px; width: auto; padding: 8px 14px; background: #222; color: #fff; border: 2px solid #fff; border-radius: 6px; font-size: 14px; cursor: pointer; z-index: 9999; margin: 0; }
+#ai-send-btn { background: #3a9fed; border: none; border-radius: 50%; width: 32px; height: 32px; color: white; cursor: pointer; display: flex; justify-content: center; align-items: center; margin: 0 !important; padding: 0 !important; }
+#ai-toggle-btn { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #2d27db 0%, #3a9fed 100%); border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 4px 15px rgba(58, 159, 237, 0.5); cursor: pointer; font-size: 24px; display: flex; justify-content: center; align-items: center; float: right; margin: 0 !important; }
+
+/* 其他按钮 */
+#bgm-btn { position: fixed; bottom: 20px; left: 20px; width: auto !important; padding: 8px 14px; background: #222; color: #fff; border: 2px solid #fff; border-radius: 6px; font-size: 14px; cursor: pointer; z-index: 9999; margin: 0 !important; }

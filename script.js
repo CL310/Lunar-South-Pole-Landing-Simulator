@@ -145,11 +145,34 @@ saveBtn.addEventListener('click', () => {
     setTimeout(() => { tip.style.display = 'none'; }, 3000);
 });
 
+// --- 顶部按钮逻辑 ---
 const startSimBtn = document.getElementById('start-sim-btn');
 if(startSimBtn) {
     startSimBtn.addEventListener('click', () => { document.getElementById('tutorial-overlay').style.display = 'none'; });
 }
 
+const btnHelp = document.getElementById('btn-help');
+if(btnHelp) {
+    btnHelp.addEventListener('click', () => {
+        document.getElementById('tutorial-overlay').style.display = 'flex';
+    });
+}
+
+const btnDashboard = document.getElementById('btn-dashboard');
+if(btnDashboard) {
+    btnDashboard.addEventListener('click', () => {
+        document.getElementById('dashboard-modal').style.display = 'flex';
+    });
+}
+
+const closeDashboardBtn = document.getElementById('close-dashboard');
+if(closeDashboardBtn) {
+    closeDashboardBtn.addEventListener('click', () => {
+        document.getElementById('dashboard-modal').style.display = 'none';
+    });
+}
+
+// --- BGM 逻辑 ---
 const bgm = document.getElementById('bgm');
 const bgmBtn = document.getElementById('bgm-btn');
 if (bgm && bgmBtn) {
